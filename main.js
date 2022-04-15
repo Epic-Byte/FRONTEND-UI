@@ -1,3 +1,86 @@
+const loginButton = document.getElementById('loginButton'),
+        beforeconnection = document.getElementById('before-connection'),
+        uploadForm = document.getElementById('upload-form'),
+        UploadButton= document.getElementById('UploadButton');
+        
+        web3 = new Web3(web3.currentProvider);
+
+
+        window.addEventListener('load',  () => {
+          toggleButton()
+          }
+         );
+       
+       async function toggleButton() {
+       // If no MetaMask
+       if (!window.ethereum) {
+         loginButton.innerHTML ='Metamask not installed';
+         beforeconnection.innerHTML = `Please install Metamask to get started <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">Download Link</a>`;
+       }
+       else {
+         loginButton.addEventListener('click',async () => {
+           // New web3 provider
+           if (window.ethereum) {
+               window.web3 = new Web3(ethereum);
+               try {
+                   // ask user for permission
+                   const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                   const account = accounts[0];
+                   userAccount = accounts[0];
+                   loginButton.innerHTML ='Connected';
+                   beforeconnection.innerHTML = `You're set to go.`;
+                   uploadForm.classList = 'form';
+                   // user approved permission
+               } catch (error) {
+                   // user rejected permission
+                   console.log('user rejected permission');
+                   alert('user rejected permission');
+                   }
+                 }
+                });
+
+         }
+       };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*!
  * Webflow: Front-end site library
  * @license MIT

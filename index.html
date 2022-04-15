@@ -4,7 +4,8 @@
 <html data-wf-domain="gigshare.webflow.io" data-wf-page="61c1b5d6cb8a0022e7fa6e83" data-wf-site="61c1b5d6cb8a0046c7fa6e82" data-wf-status="1">
     <head>
         <meta charset="utf-8"/>
-        <title>Gig Share</title>
+        <title>Web3 Library</title>
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
         <meta content="Gig Share" property="og:title"/>
         <meta content="https://uploads-ssl.webflow.com/61c1b5d6cb8a0046c7fa6e82/61c1c0e6d3b84e3f6ad4dc8a_opengraph.jpg" property="og:image"/>
         <meta content="Gig Share" property="twitter:title"/>
@@ -586,7 +587,7 @@
                                         <div class="nav-txt">Benefits</div>
                                     </div>
                                 </a>
-                                <a href="#Library" data-anim="link" class="header__nav-link w-inline-block">
+                                <a href="library.html" data-anim="link" class="header__nav-link w-inline-block">
                                     <div class="nav-txt-anim">
                                         <div class="nav-txt mod--over">Library</div>
                                         <div class="nav-txt">Library</div>
@@ -602,7 +603,7 @@
                             <div class="header__col">
                                 <div class="header__buttons">
                                     </a>
-                                    <a href="#" class="btn btn--reg w-button">Connect Wallet</a>
+                                    <button class="btn btn--reg w-button" id=loginButton>Connect Wallet</button>
                                 </div>
                                 <div class="header__humburger-wrap">
                                     <div class="header__humb">
@@ -621,9 +622,10 @@
                         <nav style="opacity:0;-webkit-transform:translate3d(0, 100px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="menu__nav">
                             <a href="#uploadFiles" class="menu__nav-link">Upload Files</a>
                             <a href="#Benefits" class="menu__nav-link">Benefits</a>
+                            <a href="library.html" class="menu__nav-link">Library</a>
                             <a href="#About" class="menu__nav-link">About</a>
                         </nav>
-                            <a href="#" class="btn btn--reg w-button">Connect Wallet</a>
+                        <button class="btn" id=loginButton>Connect Wallet</button>
                         </div>
                     </div>
                 </div>
@@ -635,26 +637,16 @@
                             <h2 class="heading1 mod--hero">Our Decentralized Library.</h2>
                             <p class="hero__p">Upload files,books,videos to our decentralized library for users around the world. View and download any file 
                                 from our library without restrictions.
-                            </p>
-                            <div data-style="dash" data-addfile="btn" class="addfile-wrap">
-                                <div class="addfile">
-                                    <div data-addfile="hover" class="addfile__block-hover">
-                                        <div data-addfile="add" class="addfile__block mod--1">
-                                            <div class="addfile__plus"></div>
-                                            <div>
-                                                <div class="addfile__txt mod--title">Add your files</div>
-                                                <div class="addfile__txt mod--desc">Up to 20 GB</div>
-                                            </div>
-                                        </div>
-                                        <div data-addfile="images" class="addfile__block mod--2">
-                                            <div class="addfile__img-wrap">
-                                                <img src="https://uploads-ssl.webflow.com/61c1b5d6cb8a0046c7fa6e82/61c33a7e53023206e75e6905_addfile_img.svg" loading="eager" alt="" class="addfile__img mod--0"/>
-                                                <img src="https://uploads-ssl.webflow.com/61c1b5d6cb8a0046c7fa6e82/61c33a7e53023206e75e6905_addfile_img.svg" loading="eager" data-addfile="img" alt="" class="addfile__img mod--1 active"/>
-                                                <img src="https://uploads-ssl.webflow.com/61c1b5d6cb8a0046c7fa6e82/61c33a7e53023206e75e6905_addfile_img.svg" loading="eager" data-addfile="img" alt="" class="addfile__img mod--2 active"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </p><span id="before-connection">Connect your wallet to get Started.</span>
+                            <div class="form display-none" id="upload-form">
+                                <p>File Name:</p>
+                                <input type="text" id="item-name" class="form-control" placeholder="Enter the Item Name...">
+                                
+                                <p>Description:</p>
+                                <input type="text" id="item-description" class="form-control" placeholder="Enter the Item Description...">
+                                <p>Choose File to Upload:</p>
+                                <input type="file" id="item-file" class="form-control">
+                                <button id="UploadButton" class="btn">Add to Library</button>
                             </div>
                         </div>
                     </div>
@@ -677,7 +669,7 @@
                 <section id="Benefits" class="section mod--work">
                     <div data-w-id="23aa82da-d192-8dd9-fd6c-34b1289acbf1" class="content">
                         <h2 class="heading--center">
-                             Decentralized Library?
+                             Benefits of a Decentralized Library.
                         </h2>
                         <div data-swiper="work" class="swiper mod--work">
                             <div class="swiper-wrapper">
@@ -733,13 +725,11 @@
                         </div>
                     </div>
                 </section>
-                <section id="Library">
-                    
-                </section>
+                
                 <footer id="About" data-w-id="5a902773-1dd3-2c0e-6f8b-6e47cae613d7" class="footer">
                     <div data-w-id="682e79bb-f4d4-aca3-65b1-e2dce7b2d527" class="content">
                         <div data-w-id="611e80fe-41d5-4cae-c50f-d3d115a1656e" class="footer__offer">
-                            <h2 class="footer__offer-heading">Get started with our Library?</h2>
+                            <h2 class="footer__offer-heading">Get started with our Library.</h2>
                             <div data-style="dash2" class="footer__offer-btn-wrap">
                                 <a href="#" class="btn mod--offer w-inline-block">
                                     <div class="btn-offer__arrow-wrap">
@@ -783,6 +773,14 @@
                                                     <div class="nav-txt-anim">
                                                         <div class="nav-txt mod--over">Benefits</div>
                                                         <div class="nav-txt">Benefits</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="footer__list-item">
+                                                <a href="library.html" data-anim="link" class="footer__nav-link w-inline-block">
+                                                    <div class="nav-txt-anim">
+                                                        <div class="nav-txt mod--over">Library</div>
+                                                        <div class="nav-txt">Library</div>
                                                     </div>
                                                 </a>
                                             </li>
