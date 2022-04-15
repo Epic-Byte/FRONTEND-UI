@@ -1,8 +1,12 @@
 const loginButton = document.getElementById('loginButton'),
         beforeconnection = document.getElementById('before-connection'),
         uploadForm = document.getElementById('upload-form'),
-        UploadButton= document.getElementById('UploadButton');
-        
+        UploadButton= document.getElementById('UploadButton'),
+        itemName = document.getElementById('item-name'),
+        itemDescription = document.getElementById('item-description'),
+        itemFile = document.getElementById('item-file');
+
+
         web3 = new Web3(web3.currentProvider);
 
 
@@ -42,6 +46,13 @@ const loginButton = document.getElementById('loginButton'),
          }
        };
 
+
+  //Function to Upload files to IPFS and push to Library page
+  UploadButton.addEventListener('click', IPFSthenLibrary);
+
+  async function IPFSthenLibrary() {
+      
+  }
 
 
 
